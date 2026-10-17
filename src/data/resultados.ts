@@ -113,7 +113,7 @@ export const titulos = {
   real_vs_predicho: "Desde unos 15 anillos, el modelo tiende a subestimar",
   residuos: "La dispersión de los residuos crece con el valor predicho",
   por_sexo: "Rendimiento por sexo",
-  importancias: resultados.textos.importancias.split(",")[0] + " con diferencia",
+  importancias: resultados.textos.importancias.split(" (")[0],
   interpretabilidad: "SHAP y LIME coinciden en ShellWeight y difieren en ShuckedWeight",
   limitaciones: resultados.textos.conclusion_final.split(" (")[0],
 };
