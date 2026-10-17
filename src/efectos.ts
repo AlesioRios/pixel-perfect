@@ -81,11 +81,11 @@ function indiceActivo() {
 function figuras() {
   document.querySelectorAll<HTMLImageElement>(".figura-marco img").forEach((img) => {
     const marco = img.parentElement!;
+    img.addEventListener("load", () => marco.classList.add("cargada"), { once: true });
+    img.addEventListener("error", () => marco.classList.add("falta"), { once: true });
     if (img.complete) {
       if (img.naturalWidth === 0) marco.classList.add("falta");
       else marco.classList.add("cargada");
-    } else {
-      img.addEventListener("load", () => marco.classList.add("cargada"), { once: true });
     }
   });
 }
