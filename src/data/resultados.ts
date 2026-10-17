@@ -89,7 +89,7 @@ export const resultados = {
     "El modelo tiende a subestimar los valores altos de Rings.",
     "Se evaluó una sola partición train/test; la validación cruzada se usó solo dentro del conjunto de entrenamiento para buscar hiperparámetros.",
     "SHAP y LIME explican observaciones puntuales, no el modelo completo, y pueden diferir entre sí."
-  ]
+  ],
   // por_sexo: NO disponible todavía. No inventar.,
   por_sexo: undefined as undefined | { grupo: string; n: number; mae: number; rmse: number; r2: number }[],
 };
