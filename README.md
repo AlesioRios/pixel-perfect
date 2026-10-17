@@ -27,3 +27,9 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+## Reporte Abalone: cómo actualizar
+
+- **Datos:** todo el contenido experimental vive en `src/data/resultados.ts`. Reemplazá los valores ahí; la página se actualiza sola. `MODO_DISENO = false` oculta la vista previa de la sección 6. Para mostrarla con datos reales, agregá `por_sexo: [{ grupo, n, mae, rmse, r2 }, ...]`.
+- **Gráficos:** copiá los PNG en `public/graficos/` con estos nombres: `real_vs_predicho.png`, `residuos_vs_predicho.png`, `hist_residuos.png`, `mae_por_sexo.png`, `pdp.png`, `shap_cascada.png`, `lime.png`. Mientras falten se muestra "Figura pendiente".
+- **Efectos:** `src/efectos.ts` (sin librerías). La página se lee completa sin JavaScript.
