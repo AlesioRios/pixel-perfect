@@ -93,3 +93,27 @@ export const resultados = {
   // por_sexo: NO disponible todavía. No inventar.,
   por_sexo: undefined as undefined | { grupo: string; n: number; mae: number; rmse: number; r2: number }[],
 };
+
+// ---- Derivados (calculados sólo a partir de los datos de arriba) ----
+const n = (v: number, d: number) =>
+  v.toLocaleString("es-AR", { minimumFractionDigits: d, maximumFractionDigits: d });
+const m = resultados.metricas;
+
+/** Etiqueta de ajuste tomada de la última frase de interpretacion.r2 */
+export const etiquetaAjuste = (resultados.interpretacion.r2.split(". ").pop() ?? "")
+  .replace(/\.$/, "")
+  .toLowerCase();
+
+export const conclusionPrincipal = `El modelo se equivoca en promedio ${n(m.mae, 2)} anillos y explica el ${n(m.r2 * 100, 1)} % de la variabilidad de Rings.`;
+
+export const titulos = {
+  datos: `${resultados.datos.filas} observaciones y ${resultados.datos.predictores} predictores, sin valores faltantes`,
+  metodologia: `${resultados.hiperparametros.busqueda.trials} trials de Optuna, buscando sólo sobre el conjunto de entrenamiento`,
+  metricas: `MAE de ${n(m.mae, 3)} anillos en test y RMSE mayor: hay algunos errores grandes`,
+  real_vs_predicho: "Desde unos 15 anillos, el modelo tiende a subestimar",
+  residuos: "La dispersión de los residuos crece con el valor predicho",
+  por_sexo: "Rendimiento por sexo",
+  importancias: resultados.textos.importancias.split(",")[0] + " con diferencia",
+  interpretabilidad: "SHAP y LIME coinciden en ShellWeight y difieren en ShuckedWeight",
+  limitaciones: resultados.textos.conclusion_final.split(" (")[0],
+};
