@@ -221,3 +221,7 @@ code { font-family: var(--fuente-mono); font-size: 0.88em; }
   .figura, .tabla tr { break-inside: avoid; }
   .tabla-envoltura { overflow: visible; }
 }
+
+/* Mientras una figura no cargó, se ve el recuadro pendiente (la imagen sigue cargando detrás) */
+.js .figura-marco:not(.cargada) .figura-pendiente { display: flex; }
+.js .figura-marco:not(.cargada) .figura-abrir { position: absolute; inset: 0; overflow: hidden; }
